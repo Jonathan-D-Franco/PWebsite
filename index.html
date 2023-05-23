@@ -33,6 +33,7 @@
 
             .arrow-left, .arrow-right {
                 display: inline-block;
+                position: absolute;
                 width: 10px;
                 height: 10px;
                 border-top: 2px solid black;
@@ -41,14 +42,14 @@
 
             .arrow-left {
                 transform: rotate(-135deg);
-                left: 40%; /* Place on the left */
-                top: 100%; /* Center vertically */
+                left: 35%; /* Place on the left */
+                top: 200%; /* Center vertically */
             }
 
             .arrow-right {
                 transform: rotate(45deg);
-                right: 40%; /* Place on the right */
-                top: 100%; /* Center vertically */
+                right: 35%; /* Place on the right */
+                top: 200%; /* Center vertically */
             }
 
             @keyframes shadow-change {
@@ -85,7 +86,6 @@
                 margin-right: -50%;
                 transform: translate(-50%, 20%);
                 background-color: #9273B0;
-                margin: 10px;
                 cursor:pointer;
                 transition: opacity 0.5s ease-out;
                 opacity: 0;
@@ -177,9 +177,9 @@
                 }    
                 .Nested-inner-ring.enlarge {
                 transition: all 0.5s ease-out;
-                width: 50%;
-                height: 50%;
-            }      
+                width: 150%;
+                height: 150%;
+            }          
 
         </style>
     </head>
@@ -191,7 +191,7 @@
         <div class="content">
             <div class="skill-ring" id="ring1">
                 <div class="inner-ring" id="inring1"></div>
-                <div class="title" title = "Skills"> Skills </div>
+                <div class="title" id = "Skills"> Skills </div>
                 <div class="skill" data-skill="Python">Python</div>
                 <div class="skill" data-skill="JavaScript">JavaScript</div>
                 <div class="skill" data-skill="HTML">HTML</div>
@@ -205,7 +205,7 @@
                 <div class="inner-ring" id="inring2"></div>
                 
                 <div class="Nested-inner-ring" id="nestRing"></div>
-                <div class="title" title = "info"> About Me </div>
+                <div class="title" id = "info"> About Me </div>
 
         
                 <!-- add more skills as necessary -->
@@ -213,11 +213,6 @@
               <button class="arrow-button arrow-left"></button>
               <button class="arrow-button arrow-right"></button>
               
-            <h2>About Me</h2>
-            <p>
-                Hello! I'm a Computer Science student with a passion for coding.
-                On this website, you'll find information about my skills, projects, and experiences.
-            </p>
             
             
             <h2>My Projects</h2>
