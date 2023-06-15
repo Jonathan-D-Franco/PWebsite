@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     let skills = Array.from(document.getElementsByClassName('skill'));
-    let skillRing = document.querySelector('.skill-ring');
+    let skillRing = document.querySelector('.ring-container');
 
     // Calculate the center of the skill ring
     const centerX = skillRing.getBoundingClientRect().left + skillRing.offsetWidth / 2;

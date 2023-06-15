@@ -4,6 +4,14 @@
         <title>Portfolio Website</title>
         <style>
 
+            #glCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Make sure the canvas stays behind content */
+            }
             body {
                 font-family: Arial, sans-serif;
               background-color: black;
@@ -43,13 +51,13 @@
             .arrow-left {
                 transform: rotate(-135deg);
                 left: 35%; /* Place on the left */
-                top: 250%; /* Center vertically */
+                top: 415%; /* Center vertically */
             }
 
             .arrow-right {
                 transform: rotate(45deg);
                 right: 35%; /* Place on the right */
-                top: 250%; /* Center vertically */
+                top: 415%; /* Center vertically */
             }
 
             @keyframes shadow-change {
@@ -77,19 +85,19 @@
                         10px 0 80px #0f0;
                 }
             }
+            .ring-container {
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%, 97%);
+                transform-origin: 10px 50%;
+                transition: all 0.5s ease-out;
+            }
             .skill-ring {
                 width: 300px;
                 height: 300px;
                 border-radius: 50%;
-                position: absolute;
-                left: 50%;
-                margin-right: -50%;
-                transform: translate(-50%, 50%);
                 background-color: #9273B0;
                 cursor:pointer;
-                transition: opacity 0.5s ease-out;
-                opacity: 0;
-                visibility: hidden;
                 box-shadow:
                 inset 0 0 50px #fff,      /* inner white */
                 inset 20px 0 80px #f0f,   /* inner left magenta short */
@@ -100,10 +108,7 @@
                 -10px 0 80px #f0f,        /* outer left magenta */
                 10px 0 80px #0ff;         /* outer right cyan */
                 }
-                .skill-ring:first-child {
-                    opacity: 1;
-                    visibility: visible;
-                }
+      
             .inner-ring{
                 position: absolute;
                 width: 50%;
@@ -184,30 +189,35 @@
         </style>
     </head>
     <body>
+        <canvas id="glCanvas" width="980" height="480"></canvas>
+            
         <div class="header">
             <h1>Welcome to My Website</h1>
         </div>
     
         <div class="content">
-            <div class="skill-ring" id="ring1">
-                <div class="inner-ring" id="inring1"></div>
-                <div class="title" id = "Skills"> Skills </div>
-                <div class="skill" data-skill="Python">Python</div>
-                <div class="skill" data-skill="JavaScript">JavaScript</div>
-                <div class="skill" data-skill="HTML">HTML</div>
-                <div class="skill" data-skill="R">R</div>
-                <div class="skill" data-skill="C++">C++</div>
-                <div class="skill" data-skill="SQL">SQL</div>
-                <div class="skill" data-skill="Java">Java</div>
+            <div class="ring-container" id="ring1">
+                <div class="skill-ring" id="ring1">
+                    <div class="inner-ring" id="inring1"></div>
+                    <div class="title" id = "Skills"> Skills </div>
+                    <div class="skill" data-skill="Python">Python</div>
+                    <div class="skill" data-skill="JavaScript">JavaScript</div>
+                    <div class="skill" data-skill="HTML">HTML</div>
+                    <div class="skill" data-skill="R">R</div>
+                    <div class="skill" data-skill="C++">C++</div>
+                    <div class="skill" data-skill="SQL">SQL</div>
+                    <div class="skill" data-skill="Java">Java</div>
+                </div>
                 <!-- add more skills as necessary -->
               </div>
-              <div class="skill-ring" id="ring2" style="visibility: hidden; ">
-                <div class="inner-ring" id="inring2"></div>
-                
-                <div class="Nested-inner-ring" id="nestRing"></div>
-                <div class="title" id = "info"> About Me </div>
+              <div class="ring-container" id="ring2">
+                <div class="skill-ring">
+                    <div class="inner-ring" id="inring2"></div>
+                    
+                    <div class="Nested-inner-ring" id="nestRing"></div>
+                    <div class="title" id = "info"> About Me </div>
 
-        
+                </div>
                 <!-- add more skills as necessary -->
               </div>
               <button class="arrow-button arrow-left"></button>
@@ -222,6 +232,7 @@
             </p>
             <a href="https://github.com/Jonathan-D-Franco">My GitHub</a>
         </div>
+        <script src="webglBG.js"></script>
         <script src="index.js"></script>
         <script src="multiring.js"></script>
         <script src="aboutMe.js"></script>
